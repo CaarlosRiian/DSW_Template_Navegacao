@@ -10,5 +10,12 @@
     <h2>Estou bem Animado! =D</h2>
     <p>{{ kalebe }}</p>
     <h1>Ainda estou no Django Básico!</h1>
+
+    <!-- Mostrando os dodos dos produtos  -->
+{% for produto in produtos %}
+    <a href="{% url 'produto' produto.id %}">
+        <p>{{ produto }}</p>
+    </a>
+{% endfor %}
 </body>
 </html>

@@ -1,7 +1,19 @@
 from django.shortcuts import render
 
+from .models import Produto
+
 def index(request):
-    testando = {
-        'kalebe': 'vai que né kkkkkkk'
+    produtos = Produto.objects.all()
+
+    context = {
+        'produtos': produtos
     }
-    return render(request, 'index.html', testando)
+    return render(request, 'index.html', context)
+
+def produto(request, pk):
+    produto = Produto.objects.get(id=pk)
+    context = {
+        'produto': produto
+    }
+    return render(request, 'produto.html', context)
+

@@ -1,0 +1,117 @@
+# django-basico-udemy
+
+12/11/2023
+
+Aula 23 - configurando settings (basico):
+
+Templates = [
+    'DIR': ['templates']
+]
+
+LANGUAGE_CODE = 'pt-br'
+
+------------------------------------------------------------------------------------------------------------
+
+aula 24 - configurando arquivo views.py
+
+criado em views a função index, para pagina incial do django:
+
+def index(request):
+    return render(request, 'index.html')
+
+------------------------------------------------------------------------------------------------------------
+
+aula 25 - adicionando as rotas aos arquivos em URL
+
+importando a views da aplicação:
+
+from udemy1.views import index
+
+logo em seguida:
+
+path('', index), --> adicionar em urlpatterns
+
+quando alguem acessar a parte de arquivos do admin, faz isso:
+
+from django.urls import path, ''include'' -- >importar esse include!
+
+path('', include('aplicação.urls')),
+
+e na aplicação cria o arquivo 'urls.py'
+
+from django.urls import path
+from .views import index --> Importa esses dois ai
+
+urlpatterns = [
+    path('', index),
+    
+]
+
+(qualquer coisa rever essa aula!)
+
+------------------------------------------------------------------------------------------------------------
+
+aula 26 - Templates no django
+
+Cria na aplicação a pasta -> templates
+
+cria arquivo index e escreve o que quiser, para a página inicial do Django!
+
+------------------------------------------------------------------------------------------------------------
+
+13/11/2023
+
+aula 27 - Models Django!
+                                            sempre herdando de models:
+criando classes sempre com o incial maiusculo! ex: Produtos(models.Model)
+
+python manage.py makemigrations -> ele criara na aplicação o banco de dados!
+sempre que criar um modelo novo, usar o comando: makemigrations!!!
+
+python manage.py migrate -> toda vez que alterar algo, use para salvar!
+
+------------------------------------------------------------------------------------------------------------
+
+aula 28 - Area administrativa e o Admin do Django:
+
+criar usuário da parte administrativa:
+
+python manage.py createsuperuser
+autenticação teste:
+user: Rian
+senha: rian232425
+
+arquivo admin.py:
+
+importando os dois modelos criados:
+
+from .models import Produto, Clientes
+
+importamos os dois criados e la na area administrativa do django irá aparecer os dois:
+admin.site.register(Produto)
+admin.site.register(Clientes)
+
+Criando função  
+    def __str__(self):
+        return self.nome
+para na area administrativa mostrar os nomes dos produtos
+
+------------------------------------------------------------------------------------------------------------
+
+aula 29 - usando Django Shell:
+
+usando os comandos normais podemos aprender mais funções:
+ex:
+python manage.py help runserver
+ele listará outras funções que podemos usar com o runserver
+
+abrir o Shell:
+
+python manage.py shell
+
+------------------------------------------------------------------------------------------------------------
+
+aula 30 - apresentando banco de dados ao template
+
+{% criando um for aqui dentro %}
+{% endfor %} -> Fechando for 
