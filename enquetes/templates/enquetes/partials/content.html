@@ -1,0 +1,33 @@
+{% load static  %}
+
+<header>
+    <div class="container">
+        <h1><a href="{% url 'home' %}"><img class="logo" src="{% static 'enquetes/images/logo.png' %}" alt="logomarca: Q dentro de um quadrado"/></a></h1>
+        <nav>
+            <ul>
+                <li><a href="#">Benefícios</a></li>
+                <li><a href="#">Modelos</a></li>
+                <li><a href="#">Preços</a></li>
+                <li><a href="#">Perguntas Frequentes</a></li>
+            </ul>
+        </nav>
+        <div>
+            <a href="">Entrar</a>
+            <a class="btn btn-primary" href="">Cadastre-se gratuitamente!</a>
+        </div>
+    </div>
+</header>
+<body>
+<main>
+    {% include 'enquetes/partials/core-index.html' %}
+    {% include 'enquetes/partials/enquetes-index.html' %}
+</main>
+<footer>
+    <ul>
+        <li><a href="">Termos e Condições</a></li>
+        <li><a href="">Política de Privacidade</a></li>
+        <li><a href="">Segurança</a></li>
+        <li><a href="">Declaração de Acessibilidade</a></li>
+    </ul>
+</footer>
+
